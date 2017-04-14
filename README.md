@@ -1,2 +1,2 @@
 # telegrambot
-Telegram Bot
+Telegram Bot - Python
