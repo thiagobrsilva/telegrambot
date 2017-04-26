@@ -2,11 +2,13 @@ import os.path
 import requests
 import time
 import logging
+import sys
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
 
+
 # Token
-token = '335461759:AAEAwJiQqPhf-ShRGFSumAZmUSlmt2Y36cU'
+token = sys.argv[1]
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -36,6 +38,10 @@ def getMsg(bot, update):
     # Accept only messages with http - Youtube url: https://www.youtube.com/watch?v=VK6twHXYEBY
     if ("http" in user_msg.lower()):
         update.message.reply_text('Carregando...')
+
+        print('xxx')
+        print(optName) # PROBLEMA AQUI
+        print('xxx')
 
         task = {"link": user_msg, "type": optName, "status":"0"}
 

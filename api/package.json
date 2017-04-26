@@ -28,6 +28,7 @@
     "express": "^4.15.2",
     "horizon-youtube-mp3": "^1.0.2",
     "mongoose": "^4.9.4",
+    "youtube-dl": "^1.11.1",
     "youtube-mp3": "^0.1.2"
   }
 }
