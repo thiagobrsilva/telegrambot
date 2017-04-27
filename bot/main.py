@@ -15,7 +15,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 # Conversion Options
 optDic = {'1': 'Video', '2': 'MP3'}
-optName = ''
 
 
 def start(bot, update):
@@ -33,15 +32,15 @@ def getMsg(bot, update):
     # Receive user's message
     user_msg = update.message.text
 
+    print(optName+'<<<<---')
+
     query = update.callback_query
 
     # Accept only messages with http - Youtube url: https://www.youtube.com/watch?v=VK6twHXYEBY
     if ("http" in user_msg.lower()):
         update.message.reply_text('Carregando...')
 
-        print('xxx')
-        print(optName) # PROBLEMA AQUI
-        print('xxx')
+        print(optName+'<<<<')
 
         task = {"link": user_msg, "type": optName, "status":"0"}
 
@@ -71,6 +70,7 @@ def getMsg(bot, update):
 def button(bot, update):
     query = update.callback_query
 
+    global optName
     optName = optDic.get(query.data)
 
     bot.editMessageText(text='Você selecionou: %s' % optName,
